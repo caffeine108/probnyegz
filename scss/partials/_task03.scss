@@ -1,0 +1,35 @@
+@mixin arrow($color, $direction, $size) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $size;
+
+  // Ustawianie koloru strzałki
+  @if $direction == "top" {
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == "right" {
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == "bottom" {
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == "left" {
+    border-color: transparent transparent transparent $color;
+  }
+}
+
+.task-03 {
+  .arrow-test-blue-top-20px {
+    @include arrow(blue, top, 20px);
+  }
+
+  .arrow-test-red-left-25px {
+    @include arrow(red, left, 25px);
+  }
+
+  .arrow-test-green-right-60px {
+    @include arrow(green, right, 60px);
+  }
+
+  .arrow-test-orange-bottom-100px {
+    @include arrow(orange, bottom, 100px);
+  }
+}
